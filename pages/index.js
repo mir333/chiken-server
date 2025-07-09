@@ -6,14 +6,18 @@ export default function Home() {
   useEffect(() => {
     fetch('/api/logs')
       .then(res => res.json())
-      .then(data => setLogs(data.logs));
+      .then(data => setLogs(data));
   }, []);
 
   return (
     <div style={{ padding: 20 }}>
       <h1>API Call Log</h1>
       <ul>
-          {JSON.stringify(logs)}
+        {logs.map((log, i) => (
+          <li key={i}>
+            <a href={log.url} target="_blank">{log.name} - {log.time}</a>
+          </li>
+        ))}
       </ul>
     </div>
   );
