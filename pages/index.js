@@ -13,11 +13,7 @@ export default function Home() {
     <div style={{ padding: 20 }}>
       <h1>API Call Log</h1>
       <ul>
-        {logs.map((log, i) => (
-          <li key={i}>
-            {log.timestamp} - {log.ip}
-          </li>
-        ))}
+          {JSON.stringify(logs)}
       </ul>
     </div>
   );
